@@ -1,0 +1,5 @@
+target-version = "py311"
+
+[lint]
+# 競プロでは l や O などの短い変数名、ラムダの代入を多用するため
+extend-ignore = ["E741", "E731"]

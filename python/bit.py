@@ -1,5 +1,4 @@
 class BIT:  # Binary Indexed Tree
-
     def __init__(self, n) -> None:
         self.n = n
         self.data = [0] * self.n

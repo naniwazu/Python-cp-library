@@ -1,16 +1,15 @@
 class scc_graph:  # Strongly Connected Components
-
     def __init__(self, N):
         self.N = N
         self.edges = []
 
     def csr(self):
-        self.start = [0]*(self.N+1)
-        self.elist = [0]*len(self.edges)
+        self.start = [0] * (self.N + 1)
+        self.elist = [0] * len(self.edges)
         for e in self.edges:
-            self.start[e[0]+1] += 1
-        for i in range(1, self.N+1):
-            self.start[i] += self.start[i-1]
+            self.start[e[0] + 1] += 1
+        for i in range(1, self.N + 1):
+            self.start[i] += self.start[i - 1]
         counter = self.start[:]
         for e in self.edges:
             self.elist[counter[e[0]]] = e[1]
@@ -24,10 +23,10 @@ class scc_graph:  # Strongly Connected Components
         N = self.N
         now_ord = group_num = 0
         visited = []
-        low = [0]*N
-        order = [-1]*N
-        ids = [0]*N
-        parent = [-1]*N
+        low = [0] * N
+        order = [-1] * N
+        ids = [0] * N
+        parent = [-1] * N
         stack = []
         for i in range(N):
             if order[i] == -1:
@@ -39,7 +38,7 @@ class scc_graph:  # Strongly Connected Components
                         low[v] = order[v] = now_ord
                         now_ord += 1
                         visited.append(v)
-                        for i in range(self.start[v], self.start[v+1]):
+                        for i in range(self.start[v], self.start[v + 1]):
                             to = self.elist[i]
                             if order[to] == -1:
                                 stack.append(to)
@@ -59,7 +58,7 @@ class scc_graph:  # Strongly Connected Components
                         if parent[v] != -1:
                             low[parent[v]] = min(low[parent[v]], low[v])
         for i, x in enumerate(ids):
-            ids[i] = group_num-1-x
+            ids[i] = group_num - 1 - x
 
         return group_num, ids
 

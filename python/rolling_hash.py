@@ -30,19 +30,20 @@ def CalcMod(x):
 
 def RollingHash(s):
     l = len(s)
-    hash = [0]*(l+1)
+    hash = [0] * (l + 1)
     for i in range(l):
-        hash[i+1] = CalcMod(Mul(hash[i],  base) + ord(s[i]))
+        hash[i + 1] = CalcMod(Mul(hash[i], base) + ord(s[i]))
     return hash
+
 
 # あらかじめ必要な長さの最大値分のPowMemoを計算しておく
 
 
 def setup_PowMemo(l):
     global PowMemo
-    PowMemo = [1]*(l+1)
+    PowMemo = [1] * (l + 1)
     for i in range(l):
-        PowMemo[i+1] = CalcMod(Mul(PowMemo[i], base))
+        PowMemo[i + 1] = CalcMod(Mul(PowMemo[i], base))
 
 
 def get(hash, l, r):
