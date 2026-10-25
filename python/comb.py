@@ -43,17 +43,17 @@ class comb_calculator:
     def fac(self, n):
         if self.N < n:
             self.extend(n)
-        return _fac[n]
+        return self._fac[n]
 
     def finv(self, n):
         if self.N < n:
             self.extend(n)
-        return _finv[n]
+        return self._finv[n]
 
     def inv(self, n):
         if self.N < n:
             self.extend(n)
-        return _inv[n]
+        return self._inv[n]
 
 
 # non-class version, a bit faster

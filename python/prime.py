@@ -22,8 +22,6 @@ def osa_k(N):
     return divisors
 
 
-print(osa_k(20))
-
 
 def prime_factors(n):
     dic = {}

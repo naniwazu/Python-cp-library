@@ -47,4 +47,4 @@ def setup_PowMemo(l):
 
 
 def get(hash, l, r):
-    return CalcMod(hash[r] + POSITIVIZER - Mul(hash[l], PowMemo(r - l)))
+    return CalcMod(hash[r] + POSITIVIZER - Mul(hash[l], PowMemo[r - l]))
