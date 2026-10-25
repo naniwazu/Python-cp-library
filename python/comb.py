@@ -1,5 +1,5 @@
 class comb_calculator:
-    __slots__ = ["mod", "_fac", "_finv", "_inv", "N"]
+    __slots__ = ["N", "_fac", "_finv", "_inv", "mod"]
 
     def __init__(self, mod, MAX=1):
         self.mod = mod
@@ -64,7 +64,6 @@ _inv = [None, 1]
 
 
 def extend(MAX):
-    global _fac, _finv, _inv
     N = len(_fac) - 1
     _fac.extend([0] * (MAX - N))
     _finv.extend([0] * (MAX - N))
@@ -73,11 +72,9 @@ def extend(MAX):
         _fac[i] = _fac[i - 1] * i % mod
         _inv[i] = mod - _inv[mod % i] * (mod // i) % mod
         _finv[i] = _finv[i - 1] * _inv[i] % mod
-    N = MAX
 
 
 def comb(n, r):
-    global _fac, _finv
     if n < r:
         return 0
     if n < 0 or r < 0:
@@ -88,7 +85,6 @@ def comb(n, r):
 
 
 def perm(n, r):
-    global _fac, _finv
     if n < r:
         return 0
     if n < 0 or r < 0:
@@ -99,21 +95,18 @@ def perm(n, r):
 
 
 def fac(n):
-    global _fac
     if len(_fac) < n + 1:
         extend(n)
     return _fac[n]
 
 
 def finv(n):
-    global _finv
     if len(_finv) < n + 1:
         extend(n)
     return _finv[n]
 
 
 def inv(n):
-    global _inv
     if len(_inv) < n + 1:
         extend(n)
     return _inv[n]
