@@ -43,18 +43,5 @@
       "\tif 0 <= nx < ${3:H} and 0 <= ny < ${4:W}:",
       "\t\t$0"
     ]
-  },
-  "recur": {
-    "scope": "python",
-    "prefix": "recur",
-    "description": "再帰上限を上げ、PyPy で深い再帰が遅くなるのを防ぐ",
-    "body": [
-      "import sys",
-      "",
-      "import pypyjit",
-      "",
-      "sys.setrecursionlimit(10**7)",
-      "pypyjit.set_param(\"max_unroll_recursion=-1\")"
-    ]
   }
 }
