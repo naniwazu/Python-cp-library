@@ -16,10 +16,10 @@ class slope_trick:  # 傾きが整数の区分線形凸関数を管理する、�
 
     def add_rampR(self, a):  # max(x-a, 0)を加算する
         l_0 = -self._L[0]
-        self._min += max(l_0-a, 0)
+        self._min += max(l_0 - a, 0)
         heappush(self._R, -heappushpop(self._L, -a))
 
     def add_rampL(self, a):  # max(a-x, 0)を加算する
         r_0 = self._R[0]
-        self._min += max(a-r_0, 0)
+        self._min += max(a - r_0, 0)
         heappush(self._L, -heappushpop(self._R, a))

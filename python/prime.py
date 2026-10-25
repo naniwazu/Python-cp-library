@@ -12,11 +12,11 @@ def prime_table(n):
 
 
 def osa_k(N):
-    divisors = [0]*(N+1)
-    for i in range(2, N+1):
+    divisors = [0] * (N + 1)
+    for i in range(2, N + 1):
         if divisors[i]:
             continue
-        for j in range(i, N+1, i):
+        for j in range(i, N + 1, i):
             if not divisors[j]:
                 divisors[j] = i
     return divisors
@@ -28,7 +28,7 @@ print(osa_k(20))
 def prime_factors(n):
     dic = {}
     cur = n
-    for i in range(2, (int(n**0.5)+2)):
+    for i in range(2, (int(n**0.5) + 2)):
         if cur % i == 0:
             count = 0
             while cur % i == 0:
@@ -40,6 +40,7 @@ def prime_factors(n):
     if cur != 1:
         dic[cur] = 1
     return dic
+
 
 # https://qiita.com/Kiri8128/items/eca965fe86ea5f4cbb98
 
@@ -75,7 +76,10 @@ def isPrimeMR(n):
 def findFactorRho(n):
     m = 1 << n.bit_length() // 8
     for c in range(1, 99):
-        def f(x): return (x * x + c) % n
+
+        def f(x):
+            return (x * x + c) % n
+
         y, r, q, g = 2, 1, 1, 1
         while g == 1:
             x = y
@@ -107,7 +111,7 @@ def primeFactor(n):
     i = 2
     ret = {}
     rhoFlg = 0
-    while i*i <= n:
+    while i * i <= n:
         k = 0
         while n % i == 0:
             n //= i
@@ -115,7 +119,7 @@ def primeFactor(n):
         if k:
             ret[i] = k
         i += 1 + i % 2
-        if i == 101 and n >= 2 ** 20:
+        if i == 101 and n >= 2**20:
             while n > 1:
                 if isPrimeMR(n):
                     ret[n], n = 1, 1

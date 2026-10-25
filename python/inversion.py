@@ -1,4 +1,4 @@
-from BIT import BIT
+from bit import BIT
 
 
 def inversion(ls):

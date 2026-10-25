@@ -3,7 +3,7 @@ def check(x):
 
 
 def bisect(ng, ok):
-    while (abs(ok - ng) > 1):
+    while abs(ok - ng) > 1:
         mid = (ok + ng) // 2
         if check(mid):
             ok = mid
