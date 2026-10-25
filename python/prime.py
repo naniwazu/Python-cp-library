@@ -22,7 +22,6 @@ def osa_k(N):
     return divisors
 
 
-
 def prime_factors(n):
     dic = {}
     cur = n
@@ -76,7 +75,7 @@ def findFactorRho(n):
     for c in range(1, 99):
 
         def f(x):
-            return (x * x + c) % n
+            return (x * x + c) % n  # noqa: B023  同じ周回の中でしか呼ばない
 
         y, r, q, g = 2, 1, 1, 1
         while g == 1:
